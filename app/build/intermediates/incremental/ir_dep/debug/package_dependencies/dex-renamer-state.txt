@@ -1,0 +1,4 @@
+#Sat May 04 09:13:03 CEST 2019
+base.0=/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/transforms/dexMerger/debug/10
+path.0=classes.dex
+renamed.0=classes.dex

@@ -1,0 +1,172 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:2:1-24:12
+MERGED from [com.android.support:design:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/89860373983a4db3ad33ab2b2ea47669/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/90d4173e165125fb34ee5009e39eefe5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/7f4a9adb59a223fd95b0f30a3d2861f4/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/d2d76675f426b7cd893b60b7562a4d0c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/4418e8acc0237f3c0e522204f73cf60e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/321fc97ff223d4f094c550d32e54868c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/309a2b0fe70e49349f5a8fc0db56c0ae/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/e636d7c442173b98be6339a4aa845fbe/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/13283d490c4ef0ffef1752d2851d085a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/d5d5a074bf94501dad481c418f641399/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/d1e595d864c1bffa321a6cc14a1d1775/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/0111ca1dc1e4bf8808f547cbb5213600/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/ea3f83869aed1f695c8a39bbce055ac1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/830a0caf5b8aa1638ae8588b4b5cd679/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/0d0ce4a73b09920d759b66ff79282126/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/cda4e64a631c8f1ece828a03c97bcb73/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/e33fe43aa205ba6b77e6c76fd16d069b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/1201e8233bd2dd4d965d9ddb438b3463/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/573e781401baf3ea6bbd4eafcd1b9847/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/089432b7f25fde541df49030070b17b5/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/3274bfa8f2f2c3e2ffbecde70822c177/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/8693bbb43f5878afbbd1845c1b4edabc/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/b073e27a32569bcc63f21df1a615f6f0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/c0ba530ad49770bda029e91efac947a1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/619cbdcf9d9761dcc32c4e462ebfe752/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/6c79cd2217466c8f801257850b297ee0/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/03fe97412b621d5a785987ce6b403840/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/ca6c6faef3fb815ec7323070754985ef/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/2a439e7b6a712bb479e0d089cb9ff74d/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/b6211bb339291675572e64446f4be928/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/5df523a190b14e9f238b26536874d4d9/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:2:1-24:12
+	package
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:3:11-46
+		INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+		INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:2:1-24:12
+		INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:2:1-24:12
+		INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:5:5-22:19
+MERGED from [com.android.support:design:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/89860373983a4db3ad33ab2b2ea47669/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/89860373983a4db3ad33ab2b2ea47669/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/7f4a9adb59a223fd95b0f30a3d2861f4/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/7f4a9adb59a223fd95b0f30a3d2861f4/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/573e781401baf3ea6bbd4eafcd1b9847/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/573e781401baf3ea6bbd4eafcd1b9847/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/089432b7f25fde541df49030070b17b5/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/089432b7f25fde541df49030070b17b5/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/573e781401baf3ea6bbd4eafcd1b9847/AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:10:13-39
+	android:label
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:8:13-45
+	android:roundIcon
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:9:13-58
+	android:icon
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:7:13-47
+	android:allowBackup
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:6:13-39
+	android:theme
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:11:13-44
+activity#com.registro.registromars.HomeActivity
+ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:12:9-21:20
+	android:label
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:14:17-49
+	android:theme
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:15:17-60
+	android:name
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:13:17-45
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:16:13-20:29
+action#android.intent.action.MAIN
+ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:17:17-68
+	android:name
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:17:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:19:17-76
+	android:name
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml:19:27-74
+uses-sdk
+INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/89860373983a4db3ad33ab2b2ea47669/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/89860373983a4db3ad33ab2b2ea47669/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/90d4173e165125fb34ee5009e39eefe5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/90d4173e165125fb34ee5009e39eefe5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/7f4a9adb59a223fd95b0f30a3d2861f4/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/7f4a9adb59a223fd95b0f30a3d2861f4/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/d2d76675f426b7cd893b60b7562a4d0c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/d2d76675f426b7cd893b60b7562a4d0c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/4418e8acc0237f3c0e522204f73cf60e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/4418e8acc0237f3c0e522204f73cf60e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/321fc97ff223d4f094c550d32e54868c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/321fc97ff223d4f094c550d32e54868c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/309a2b0fe70e49349f5a8fc0db56c0ae/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/309a2b0fe70e49349f5a8fc0db56c0ae/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/e636d7c442173b98be6339a4aa845fbe/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/e636d7c442173b98be6339a4aa845fbe/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/13283d490c4ef0ffef1752d2851d085a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/13283d490c4ef0ffef1752d2851d085a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/d5d5a074bf94501dad481c418f641399/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/d5d5a074bf94501dad481c418f641399/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/d1e595d864c1bffa321a6cc14a1d1775/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/d1e595d864c1bffa321a6cc14a1d1775/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/0111ca1dc1e4bf8808f547cbb5213600/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/0111ca1dc1e4bf8808f547cbb5213600/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/ea3f83869aed1f695c8a39bbce055ac1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/ea3f83869aed1f695c8a39bbce055ac1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/830a0caf5b8aa1638ae8588b4b5cd679/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/830a0caf5b8aa1638ae8588b4b5cd679/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/0d0ce4a73b09920d759b66ff79282126/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/0d0ce4a73b09920d759b66ff79282126/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/cda4e64a631c8f1ece828a03c97bcb73/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/cda4e64a631c8f1ece828a03c97bcb73/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/e33fe43aa205ba6b77e6c76fd16d069b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/e33fe43aa205ba6b77e6c76fd16d069b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/1201e8233bd2dd4d965d9ddb438b3463/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/1201e8233bd2dd4d965d9ddb438b3463/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/573e781401baf3ea6bbd4eafcd1b9847/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/573e781401baf3ea6bbd4eafcd1b9847/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/089432b7f25fde541df49030070b17b5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/089432b7f25fde541df49030070b17b5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/3274bfa8f2f2c3e2ffbecde70822c177/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/3274bfa8f2f2c3e2ffbecde70822c177/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/8693bbb43f5878afbbd1845c1b4edabc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/8693bbb43f5878afbbd1845c1b4edabc/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/b073e27a32569bcc63f21df1a615f6f0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/b073e27a32569bcc63f21df1a615f6f0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/c0ba530ad49770bda029e91efac947a1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/c0ba530ad49770bda029e91efac947a1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/619cbdcf9d9761dcc32c4e462ebfe752/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/619cbdcf9d9761dcc32c4e462ebfe752/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/6c79cd2217466c8f801257850b297ee0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/6c79cd2217466c8f801257850b297ee0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/03fe97412b621d5a785987ce6b403840/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/03fe97412b621d5a785987ce6b403840/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/ca6c6faef3fb815ec7323070754985ef/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/ca6c6faef3fb815ec7323070754985ef/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/2a439e7b6a712bb479e0d089cb9ff74d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/2a439e7b6a712bb479e0d089cb9ff74d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/b6211bb339291675572e64446f4be928/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/b6211bb339291675572e64446f4be928/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/5df523a190b14e9f238b26536874d4d9/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/5df523a190b14e9f238b26536874d4d9/AndroidManifest.xml:20:5-44
+INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+		INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+		ADDED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml
+		INJECTED from /home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/src/main/AndroidManifest.xml

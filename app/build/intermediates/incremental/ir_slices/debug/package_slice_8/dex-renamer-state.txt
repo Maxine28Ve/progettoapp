@@ -1,4 +1,4 @@
-#Sat May 04 09:13:06 CEST 2019
-base.0=/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/transforms/dexMerger/debug/8
+#Sun May 05 10:45:55 CEST 2019
+base.0=/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/transforms/dexMerger/debug/8
 path.0=classes.dex
 renamed.0=classes.dex

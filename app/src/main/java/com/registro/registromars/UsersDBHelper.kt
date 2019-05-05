@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 
+
 class UsersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(SQL_CREATE_ENTRIES)
@@ -27,10 +28,17 @@ class UsersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
     fun setCategory(category: Int): Boolean {
         val db = writableDatabase
         val values = ContentValues()
-        values.put(DBContract.CategoryEntry.COLUMN_CATEGORY, category)
+        try {
+            values.put(DBContract.CategoryEntry.COLUMN_CATEGORY, category)
 
-        val newRowId = db.insert(DBContract.CategoryEntry.TABLE_NAME, null, values)
+            val newRowId = db.insert(DBContract.CategoryEntry.TABLE_NAME, null, values)
+        } catch (e: SQLiteException){
+            db.execSQL(SQL_CREATE_ENTRIES)
+            values.put(DBContract.CategoryEntry.COLUMN_CATEGORY, category)
+            val newRowId = db.insert(DBContract.CategoryEntry.TABLE_NAME, null, values)
+            return false
 
+        }
         return true
     }
 
@@ -55,6 +63,16 @@ class UsersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         return category
     }
 
+    fun deleteTable(): Int{
+        val db = writableDatabase
+        try{
+            db.execSQL(SQL_DELETE_ENTRIES)
+            return 0
+        } catch(e: SQLiteException){
+
+        }
+        return 1
+    }
     companion object {
         // If you change the database schema, you must increment the database version.
         val DATABASE_VERSION = 1

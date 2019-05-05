@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v26/values-v26.xml",
+            "outputFile": "/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v26/values-v26.xml",
             "map": [
                 {
-                    "source": "/home/local/FERMI/s01238/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/90d4173e165125fb34ee5009e39eefe5/res/values-v26/values-v26.xml",
+                    "source": "/home/maxine/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/33d717e82a986c3433f3f1b5ea55463e/res/values-v26/values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",

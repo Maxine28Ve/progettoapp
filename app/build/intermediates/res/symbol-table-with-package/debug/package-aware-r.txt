@@ -1140,12 +1140,11 @@ id mini
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
-id nav_camera
-id nav_gallery
-id nav_manage
-id nav_send
-id nav_share
-id nav_slideshow
+id nav_home
+id nav_logout
+id nav_notizie
+id nav_orari
+id nav_specializzazioni
 id nav_view
 id navigation_header_container
 id never
@@ -1243,6 +1242,7 @@ id up
 id useLogo
 id view_offset_helper
 id visible
+id webView
 id withText
 id wrap
 id wrap_content
@@ -1295,6 +1295,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout app_bar_main
+layout content_login
 layout content_main
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

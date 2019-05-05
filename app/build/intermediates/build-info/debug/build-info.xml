@@ -6,7 +6,7 @@
     density="xhdpi"
     format="10"
     plugin-version="3.3.2"
-    timestamp="1556953925939"
+    timestamp="1557046248201"
     token="-3861855677814298436"
     verifier="FULL_BUILD_REQUESTED" >
 
@@ -18,88 +18,154 @@
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="758" />
+        duration="0" />
     <task
         name="verifier"
-        duration="209" />
+        duration="0" />
 
     <artifact
-        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+        location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
+        type="SPLIT_MAIN" />
+    <artifact
+        location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
         type="SPLIT" />
     <artifact
-        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
         type="SPLIT" />
     <artifact
         location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
         type="SPLIT" />
     <artifact
-        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
         type="SPLIT" />
     <artifact
         location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
         type="SPLIT" />
     <artifact
-        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
         type="SPLIT" />
     <artifact
-        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
         type="SPLIT" />
     <artifact
         location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
         type="SPLIT" />
     <artifact
-        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
         type="SPLIT" />
     <artifact
         location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
         type="SPLIT" />
     <artifact
-        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
-        type="SPLIT_MAIN" />
+        location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1556953925939"
+        timestamp="1557046248201"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
+            type="SPLIT_MAIN" />
+        <artifact
+            location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
             location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
         <artifact
             location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
             location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
             location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
-            type="SPLIT_MAIN" />
+            location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/local/FERMI/s01238/AndroidStudioProjects/registromars/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            type="SPLIT" />
     </build>
 
 </instant-run>

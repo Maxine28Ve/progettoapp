@@ -3,10 +3,12 @@ package com.registro.registromars
 import android.content.Context
 import android.content.Intent
 import android.app.Activity
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -24,6 +26,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     var usersDB: UsersDBHelper = UsersDBHelper(this)
     val url = "file:///android_asset/Home.html"
+    var backpressed_counter : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,8 +34,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         webView.settings.loadsImagesAutomatically = true
         webView.settings.javaScriptEnabled = true
-        webView.setWebViewClient(WebViewClient())
-        webView.addJavascriptInterface(WebAppInterface( this), "Android")
+        webView.setWebViewClient(MyWebViewClient())
+        webView.addJavascriptInterface(HomeActivityInterface( this), "Android")
         webView.loadUrl(this.url)
 
         SQLite.sqli = UsersDBHelper(this)
@@ -61,11 +64,22 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
     }
 
+
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
+            backpressed_counter = 0
         } else {
-            super.onBackPressed()
+            backpressed_counter++
+            if(backpressed_counter == 1){
+                val message = "Press Back again to close app"
+                val duration = Toast.LENGTH_SHORT
+                val toast = Toast.makeText(this, message, duration)
+                toast.show()
+            }
+            else{
+                super.onBackPressed()
+            }
         }
     }
 
@@ -100,6 +114,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_specializzazioni -> {
 
+            }R.id.nav_linkutili -> {
+                webView.loadUrl("file:///android_asset/LinkUtili.html")
             }
             R.id.nav_logout -> {
                 SQLite.sqli.setCategory(-1)
@@ -114,9 +130,30 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
+        backpressed_counter = 0
         return true
     }
 }
+class MyWebViewClient : WebViewClient(){
+    override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+        return !("file://" in Uri.parse(url).host!!)
+        // This is my web site, so do not override; let my WebView load the page
+        // reject anything other
+    }
+}
+class HomeActivityInterface internal constructor(var context_login : Context) {
+
+    @JavascriptInterface
+    fun openLinkInBrowser(link : String){
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+        val bundle = Bundle()
+        bundle.putBoolean("new_window", true)
+        intent.putExtras(bundle)
+        context_login.startActivity( intent, null)
+
+    }
+}
+
 
 class SQLite() {
     companion object {

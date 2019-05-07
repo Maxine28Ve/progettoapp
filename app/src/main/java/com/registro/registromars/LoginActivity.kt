@@ -34,6 +34,7 @@ class LoginActivity: AppCompatActivity(){
     }
 
 
+
 }
 
 class WebAppInterface internal constructor(var context_login : Context) {

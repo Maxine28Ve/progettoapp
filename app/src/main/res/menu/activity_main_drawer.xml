@@ -16,6 +16,9 @@
         <item
                 android:id="@+id/nav_specializzazioni"
                 android:title="Specializzazioni"/>
+        <item
+                android:id="@+id/nav_linkutili"
+                android:title="Link Utili"/>
     </group>
 
     <item android:title="Profile">

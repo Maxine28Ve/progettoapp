@@ -16,11 +16,15 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.nav_header_main.*
 import android.webkit.WebViewClient
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
+import android.widget.TextView
 import kotlinx.android.synthetic.main.content_main.webView
+import kotlinx.android.synthetic.main.nav_header_main.view.*
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -50,9 +54,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(sendIntent)
         }
         Log.d("TAG", "Cookie: "+ category)
-
+        //TODO Add startActivityForResult or something
         category = SQLite.sqli.getCategory()
+        nav_view.getHeaderView(0).category_TextView.text = translateCategory(category)
         Log.d("TAG", "Cookie: "+ category)
+        Log.d("TAG", "Cookie translated: "+ translateCategory(category))
 
         Log.d("SQL", "setCategory: $category")
         val toggle = ActionBarDrawerToggle(
@@ -64,6 +70,17 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
     }
 
+    fun translateCategory(category : Int) : String{
+        if(category == 0)
+            return "Studente"
+        else if(category == 1)
+            return "Insegnante"
+        else if(category == 2)
+            return "Genitore"
+        else if(category == 3)
+            return "Segreteria"
+        return "Undefined"
+    }
 
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
@@ -110,7 +127,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
             R.id.nav_orari -> {
-
+                webView.loadUrl("file:///android_asset/OrariLezioni.html")
             }
             R.id.nav_specializzazioni -> {
 

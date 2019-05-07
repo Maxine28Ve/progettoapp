@@ -7,11 +7,13 @@ import android.database.sqlite.SQLiteConstraintException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 
 
 class UsersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(SQL_CREATE_ENTRIES)
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
@@ -25,43 +27,55 @@ class UsersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         onUpgrade(db, oldVersion, newVersion)
     }
 
-    fun setCategory(category: Int): Boolean {
+    fun setCategory(cat : Int) {
         val db = writableDatabase
-        val values = ContentValues()
-        try {
-            values.put(DBContract.CategoryEntry.COLUMN_CATEGORY, category)
+        createCategory()
 
-            val newRowId = db.insert(DBContract.CategoryEntry.TABLE_NAME, null, values)
-        } catch (e: SQLiteException){
-            db.execSQL(SQL_CREATE_ENTRIES)
-            values.put(DBContract.CategoryEntry.COLUMN_CATEGORY, category)
-            val newRowId = db.insert(DBContract.CategoryEntry.TABLE_NAME, null, values)
-            return false
-
+        if (getCategory() == -1) {
+            db.execSQL("INSERT INTO $TABLE_NAME ($COLUMN_CATEGORY) VALUES ($cat)")
+            Log.d("DB", "New row $COLUMN_CATEGORY $cat")
+            Log.d("DB", "New row get $COLUMN_CATEGORY "+getCategory())
+        } else {
+            db.execSQL("UPDATE $TABLE_NAME SET $COLUMN_CATEGORY = $cat")
+            Log.d("DB", "Updated $COLUMN_CATEGORY "+ getCategory())
         }
-        return true
     }
 
     fun getCategory() : Int{
         val db = writableDatabase
         var cursor: Cursor? = null
         try {
-            cursor = db.rawQuery("select category from " + DBContract.CategoryEntry.TABLE_NAME, null)
+            cursor = db.rawQuery("SELECT $COLUMN_CATEGORY FROM $TABLE_NAME", null)
         } catch (e: SQLiteException) {
-            // if table not yet present, create it
+            Log.d("DB", "NO DB?? $e")
             db.execSQL(SQL_CREATE_ENTRIES)
-            return -1
         }
-        var category : Int = -1
-        if (cursor!!.moveToFirst()) {
-            while (cursor.isAfterLast == false) {
-                category = cursor.getString(cursor.getColumnIndex(DBContract.CategoryEntry.COLUMN_CATEGORY)).toInt()
-                return category
-                cursor.moveToNext()
+        Log.d("DB", "Cursor: "+cursor!!.moveToFirst())
+        var row: Int = -1
+        if (cursor.moveToFirst()) {
+            Log.d("DB", "Cursor-last: "+cursor.isAfterLast)
+            try {
+                while (cursor.isAfterLast == false) {
+                     row = cursor.getString(cursor.getColumnIndex(COLUMN_CATEGORY)).toInt()
+                    Log.d("DB", "FOUND ROW : " + row)
+
+//                    return row
+                    cursor.moveToNext()
+                }
+                return row
+                Log.d("DB", "FOUND ROW : " + row)
+            } catch (e : IllegalStateException){
+                Log.d("DB", "ERROR DB $e")
             }
         }
-        return category
+        return -1
     }
+
+    fun createCategory() {
+        val db = writableDatabase
+        db.execSQL(SQL_CREATE_ENTRIES)
+    }
+
 
     fun deleteTable(): Int{
         val db = writableDatabase
@@ -78,10 +92,14 @@ class UsersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         val DATABASE_VERSION = 1
         val DATABASE_NAME = "FeedReader.db"
 
-        private val SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + DBContract.CategoryEntry.TABLE_NAME + " (" +
-                    DBContract.CategoryEntry.COLUMN_CATEGORY + " TEXT)"
+        private val TABLE_NAME = "users"
+        private val COLUMN_CATEGORY = "category"
 
-        private val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + DBContract.CategoryEntry.TABLE_NAME
+        private val SQL_CREATE_ENTRIES =
+            "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
+                    COLUMN_CATEGORY + " INTEGER)"
+
+        private val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TABLE_NAME
+
     }
 }

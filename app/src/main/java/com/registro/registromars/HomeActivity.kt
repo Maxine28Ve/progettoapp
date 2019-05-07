@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.content_main.webView
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    lateinit var usersDB: UsersDBHelper
+    var usersDB: UsersDBHelper = UsersDBHelper(this)
     val url = "file:///android_asset/Home.html"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,14 +35,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         webView.addJavascriptInterface(WebAppInterface( this), "Android")
         webView.loadUrl(this.url)
 
-        usersDB = UsersDBHelper(this)
         SQLite.sqli = UsersDBHelper(this)
         var category: Int = SQLite.sqli.getCategory()
-        var text = category.toString()
-        val duration = Toast.LENGTH_LONG
 
-        var toast = Toast.makeText(this, text, duration)
-        toast.show()
         if(category == -1) {
             val sendIntent = Intent(this, LoginActivity::class.java).apply {
                 action = Intent.ACTION_SEND
@@ -51,10 +46,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             startActivity(sendIntent)
         }
-        category = usersDB.getCategory()
-        text = category.toString()
-        toast = Toast.makeText(this, text, duration)
-        toast.show()
+        Log.d("TAG", "Cookie: "+ category)
+
+        category = SQLite.sqli.getCategory()
+        Log.d("TAG", "Cookie: "+ category)
 
         Log.d("SQL", "setCategory: $category")
         val toggle = ActionBarDrawerToggle(
@@ -107,8 +102,14 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
             R.id.nav_logout -> {
-                usersDB.deleteTable()
-                webView.loadUrl("file:///android_asset/Login.html")
+                SQLite.sqli.setCategory(-1)
+                val sendIntent = Intent(this, LoginActivity::class.java).apply {
+                    action = Intent.ACTION_SEND
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, "")
+                }
+                startActivity(sendIntent)
+
             }
         }
 
@@ -117,3 +118,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 }
 
+class SQLite() {
+    companion object {
+        lateinit var sqli : UsersDBHelper
+    }
+}

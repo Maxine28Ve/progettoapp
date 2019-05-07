@@ -17,9 +17,9 @@ import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import kotlinx.android.synthetic.main.content_main.*
 import android.util.Log
+import android.widget.Toast
 
 class LoginActivity: AppCompatActivity(){
-    lateinit var usersDB: UsersDBHelper
     val url = "file:///android_asset/Login.html"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +31,6 @@ class LoginActivity: AppCompatActivity(){
         webView.setWebViewClient(WebViewClient())
         webView.addJavascriptInterface(WebAppInterface( this), "Android")
         webView.loadUrl(this.url)
-
-        usersDB = UsersDBHelper(this)
-
     }
 
 
@@ -44,7 +41,6 @@ class WebAppInterface internal constructor(var context_login : Context) {
     @JavascriptInterface
     fun setCategory(category: Int): String{
 
-        SQLite.sqli = UsersDBHelper(context_login as Activity)
         SQLite.sqli.setCategory(category)
         (context_login as Activity).finish()
         return "Return!"
@@ -52,8 +48,3 @@ class WebAppInterface internal constructor(var context_login : Context) {
 
 }
 
-class SQLite() {
-    companion object {
-        lateinit var sqli : UsersDBHelper
-    }
-}

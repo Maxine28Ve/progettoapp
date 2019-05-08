@@ -14,6 +14,9 @@
                 android:id="@+id/nav_notizie"
                 android:title="Notizie"/>
         <item
+                android:id="@+id/nav_mappa"
+                android:title="Dove siamo"/>
+        <item
                 android:id="@+id/nav_specializzazioni"
                 android:title="Specializzazioni"/>
         <item

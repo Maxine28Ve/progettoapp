@@ -10,7 +10,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <style>
+          table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+      </style>
     <title>Orario lezioni</title>
   </head>
   <body>
@@ -24,10 +39,17 @@
                             Android.openLinkInBrowser(uri)
                         }
                     </script>
-                    <a href="https://www.fermibassano.edu.it" onclick="loadUrl('https://www.fermibassano.edu.it');">Sito web della scuola</a>
-                    <a href="https://web.spaggiari.eu/home/app/default/login.php" onclick="loadUrl('https://web.spaggiari.eu/home/app/default/login.php');">Registro elettronico</a>
-                    <a href="https://www.e-fermi.it/moodle27/" onclick="loadUrl('https://www.e-fermi.it/moodle27/');">Piattaforma moodle</a>
-            </div>
+                    <table>
+                                        <tr>
+                                          <td><a href="https://www.fermibassano.edu.it" onclick="loadUrl('https://www.fermibassano.edu.it');">Sito web della scuola</a></td>
+                                        </tr>
+                                        <tr>
+                                          <td><a href="https://web.spaggiari.eu/home/app/default/login.php" onclick="loadUrl('https://web.spaggiari.eu/home/app/default/login.php');">Registro elettronico</a></td>
+                                        </tr>
+                                        <tr>
+                                        <td><a href="https://www.e-fermi.it/moodle27/" onclick="loadUrl('https://www.e-fermi.it/moodle27/');">Piattaforma moodle</a></td>
+                                      </tr>
+                                      </table>            </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

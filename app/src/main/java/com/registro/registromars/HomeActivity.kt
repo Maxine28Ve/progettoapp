@@ -44,6 +44,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         SQLite.sqli = UsersDBHelper(this)
         var category: Int = SQLite.sqli.getCategory()
+        nav_view.getHeaderView(0).category_TextView.text = translateCategory(category)
 
         if(category == -1) {
             val sendIntent = Intent(this, LoginActivity::class.java).apply {
@@ -51,7 +52,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 type = "text/plain"
                 putExtra(Intent.EXTRA_TEXT, "")
             }
-// startActivity(sendIntent)
+        // startActivity(sendIntent)
             startActivityForResult(sendIntent, 1)
         }
         //TODO Add startActivityForResult or something
@@ -101,7 +102,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else {
             backpressed_counter++
             if(backpressed_counter == 1){
-                val message = "Press Back again to close app"
+                val message = "Press Back again to close the app"
                 val duration = Toast.LENGTH_SHORT
                 val toast = Toast.makeText(this, message, duration)
                 toast.show()
@@ -133,9 +134,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         when (item.itemId) {
             R.id.nav_home -> {
-                webView.loadUrl("file:///android_asset/Home.html")
+                webView.loadUrl("file:///android_asset/Home.html") //WIP
             }
             R.id.nav_notizie -> {
+
+            }
+            R.id.nav_mappa -> {
+                webView.loadUrl("file:///android_asset/Mappa.html") //WIP
 
             }
             R.id.nav_orari -> {

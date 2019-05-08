@@ -7,12 +7,26 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css" crossorigin="anonymous">
+    <style>
+    a:link, a:visited {
+      width: 90%;
+      background-color: #008577;
+      color: white;
+      padding: 14px 14px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-bottom: 1px solid #f4f4f9;
+    }
 
+    a:hover, a:active {
+      background-color: #00574B;
+    }    </style>
     <title>Home</title>
   </head>
   <body>
     <h1>Categoria</h1>
-    <div class="container" style="text-align: center; border: 1px solid grey;">
+    <div class="container" style="text-align: center;">
       <script>
         function js_login(category){
           Android.setCategory(category);
@@ -20,16 +34,16 @@
 
       </script>
 
-      <div class="container" style="width: 99%; height: 100%; border-bottom: 1px solid lightgrey;">
+      <div class="container" style="width: 99%; height: 100%; ">
         <a href="#" onclick="js_login(0);"> Studente </a>
       </div>
-      <div class="container" style="width: 99%; height: 100%; border-bottom: 1px solid lightgrey;">
+      <div class="container" style="width: 99%; height: 100%; ">
         <a href="#" onclick="js_login(1);"> Insegnante </a>
       </div>
-      <div class="container" style="width: 99%; height: 100%; border-bottom: 1px solid lightgrey;">
+      <div class="container" style="width: 99%; height: 100%; ">
         <a href="#" onclick="js_login(2);"> Genitore </a>
       </div>
-      <div class="container" style="width: 99%; height: 100%; border-bottom: 1px solid lightgrey;">
+      <div class="container" style="width: 99%; height: 100%; ">
         <a href="#" onclick="js_login(3);"> Segreteria </a>
       </div>
     </div>

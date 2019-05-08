@@ -1143,6 +1143,7 @@ id multiply
 id nav_home
 id nav_linkutili
 id nav_logout
+id nav_mappa
 id nav_notizie
 id nav_orari
 id nav_specializzazioni

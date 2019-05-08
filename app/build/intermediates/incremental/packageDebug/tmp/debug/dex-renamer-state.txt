@@ -1,4 +1,4 @@
-#Wed May 08 08:07:36 CEST 2019
+#Wed May 08 09:32:17 CEST 2019
 base.0=/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/dex/debug/mergeDexDebug/out
 path.0=classes.dex
 renamed.0=classes.dex

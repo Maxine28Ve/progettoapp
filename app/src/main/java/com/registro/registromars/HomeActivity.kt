@@ -51,16 +51,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 type = "text/plain"
                 putExtra(Intent.EXTRA_TEXT, "")
             }
-            startActivity(sendIntent)
+// startActivity(sendIntent)
+            startActivityForResult(sendIntent, 1)
         }
-        Log.d("TAG", "Cookie: "+ category)
         //TODO Add startActivityForResult or something
-        category = SQLite.sqli.getCategory()
-        nav_view.getHeaderView(0).category_TextView.text = translateCategory(category)
-        Log.d("TAG", "Cookie: "+ category)
-        Log.d("TAG", "Cookie translated: "+ translateCategory(category))
 
-        Log.d("SQL", "setCategory: $category")
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
@@ -68,6 +63,23 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+    }
+
+    override fun onActivityResult(requestCode : Int, resultCode : Int, data : Intent?) {
+        Log.d("TAG", "requestCode $requestCode")
+        Log.d("TAG", "resultCode $resultCode")
+
+        var category = SQLite.sqli.getCategory()
+
+        if (SQLite.sqli.getCategory() == -1) {
+            Log.e("TAG","ERROR CATEGORY IS $category")
+            finish()
+            //SQLite.sqli.setCategory(0)
+            //Log.e("TAG", "Forced category: "+SQLite.sqli.getCategory())
+        }
+        nav_view.getHeaderView(0).category_TextView.text = translateCategory(category)
+
+        Log.d("TAG", "Category: "+category)
     }
 
     fun translateCategory(category : Int) : String{
@@ -141,7 +153,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     type = "text/plain"
                     putExtra(Intent.EXTRA_TEXT, "")
                 }
-                startActivity(sendIntent)
+                startActivityForResult(sendIntent, 1)
 
             }
         }

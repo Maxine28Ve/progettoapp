@@ -84,15 +84,17 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun translateCategory(category : Int) : String{
-        if(category == 0)
-            return "Studente"
-        else if(category == 1)
-            return "Insegnante"
-        else if(category == 2)
-            return "Genitore"
-        else if(category == 3)
-            return "Segreteria"
-        return "Undefined"
+        if(category < 0)
+            return "Undefined"
+        var categories = arrayOf<String>("Studente Superiori", "Studente Medie", "Genitore", "Insegnante", "Segreteria")
+        return categories[category]
+    }
+
+    fun dynamicMenu(category: Int){
+        var priorities = arrayOf<String>()
+        when (category){
+            0 -> priorities = arrayOf<String>("OrarioLezioni")
+        }
     }
 
     override fun onBackPressed() {
@@ -133,6 +135,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
 
         when (item.itemId) {
+            /*
             R.id.nav_home -> {
                 webView.loadUrl("file:///android_asset/Home.html") //WIP
             }
@@ -150,7 +153,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }R.id.nav_linkutili -> {
                 webView.loadUrl("file:///android_asset/LinkUtili.html")
-            }
+            }*/
             R.id.nav_logout -> {
                 SQLite.sqli.setCategory(-1)
                 val sendIntent = Intent(this, LoginActivity::class.java).apply {

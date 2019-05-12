@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ca/values-ca.xml",
+            "outputFile": "/home/maxine/AndroidStudioProjects/progettoapp_dev/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ca/values-ca.xml",
             "map": [
                 {
                     "source": "/home/maxine/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/33d717e82a986c3433f3f1b5ea55463e/res/values-ca/values-ca.xml",

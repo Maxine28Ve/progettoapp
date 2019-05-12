@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/maxine/AndroidStudioProjects/progettoapp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml",
+            "outputFile": "/home/maxine/AndroidStudioProjects/progettoapp_dev/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
                     "source": "/home/maxine/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/05b74a5b9a747d10c26c9fe2ee08b1ec/res/values-sw600dp-v13/values-sw600dp-v13.xml",

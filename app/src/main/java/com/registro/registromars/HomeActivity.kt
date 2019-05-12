@@ -1,13 +1,21 @@
 package com.registro.registromars
 
+import android.Manifest
+import java.io.File
 import android.content.Context
 import android.content.Intent
 import android.app.Activity
+import android.content.pm.PackageManager
+import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.net.Uri
+import android.os.AsyncTask
 import android.os.Bundle
+import android.os.Environment
 import android.widget.Toast
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v4.content.ContextCompat.startActivity
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
@@ -15,6 +23,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -22,9 +31,22 @@ import kotlinx.android.synthetic.main.nav_header_main.*
 import android.webkit.WebViewClient
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
+import android.widget.ListView
+import android.widget.SimpleAdapter
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_downloadfile.*
 import kotlinx.android.synthetic.main.content_main.webView
 import kotlinx.android.synthetic.main.nav_header_main.view.*
+import org.w3c.dom.Element
+import org.w3c.dom.Node
+import org.xml.sax.SAXException
+import java.io.IOException
+import java.lang.ref.WeakReference
+import java.net.HttpURLConnection
+import java.net.URL
+import javax.xml.parsers.DocumentBuilderFactory
+import javax.xml.parsers.ParserConfigurationException
+import android.widget.ArrayAdapter
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -35,7 +57,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
+        val task = MyAsyncTask(this)
+        task.execute("https://www.fermibassano.edu.it/notizie?format=feed&type=rss")
         webView.settings.loadsImagesAutomatically = true
         webView.settings.javaScriptEnabled = true
         webView.setWebViewClient(MyWebViewClient())
@@ -66,6 +89,102 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
     }
 
+    companion object {
+        class MyAsyncTask internal constructor(context: HomeActivity) : AsyncTask<String, String, String?>() {
+
+            private var resp: String? = null
+            private val activityReference: WeakReference<HomeActivity> = WeakReference(context)
+
+            override fun onPreExecute() {
+                val activity = activityReference.get()
+                if (activity == null || activity.isFinishing) return
+            }
+
+            override fun doInBackground(vararg params: String?): String? {
+                publishProgress("Download started") // Calls onProgressUpdate()
+                val filelocation = getNotizie(params[0])
+                var notizie: List<Notizia>? = null
+                try {
+                    val parser = XmlPullParserHandler()
+                    val istream = File(filelocation).inputStream()
+                    notizie = parser.parse(istream)
+
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+                for (i in notizie!!) {
+                    println(i)
+                }
+                return ""
+            }
+
+            fun getNotizie(url: String?) : String{
+                val activity = activityReference.get()
+                if (activity == null || activity.isFinishing) return ""
+                var readText = ""
+                var location = ""
+                try {
+                    val url = URL(url)
+
+                    readText = url.readText()
+                    Log.d("LMAO", readText)
+                    val path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                    val fileName = "notizie.xml"
+                    location = path.toString() + "/" + fileName
+                    val myfile = File(path, fileName)
+                    if (myfile.exists() == false) {
+                        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            != PackageManager.PERMISSION_GRANTED
+                        ) {
+                            Log.d("Perm", "Permission not granted")
+                            ActivityCompat.requestPermissions(
+                                activity, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                                101
+                            )
+                        }
+                        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            == PackageManager.PERMISSION_GRANTED
+                        ) {
+                            myfile.createNewFile()
+                        }
+                    }
+                    myfile.printWriter().use { out ->
+                        out.print(readText)
+                    }
+
+                    println("Wrote to file")
+                    Log.d("File", "file exists? " + myfile.exists())
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                    resp = e.message
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    resp = e.message
+                }
+
+                return location
+
+            }
+
+            override fun onPostExecute(result: String?) {
+
+                val activity = activityReference.get()
+                if (activity == null || activity.isFinishing) return
+                Toast.makeText(activity, "Done", Toast.LENGTH_SHORT).show()
+//                activity.textView.text = result.let { it }
+                //              activity.myVariable = 100
+            }
+
+            override fun onProgressUpdate(vararg text: String?) {
+
+                val activity = activityReference.get()
+                if (activity == null || activity.isFinishing) return
+
+                Toast.makeText(activity, text.firstOrNull(), Toast.LENGTH_SHORT).show()
+
+            }
+        }
+    }
     override fun onActivityResult(requestCode : Int, resultCode : Int, data : Intent?) {
         Log.d("TAG", "requestCode $requestCode")
         Log.d("TAG", "resultCode $resultCode")

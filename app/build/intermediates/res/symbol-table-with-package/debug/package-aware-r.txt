@@ -1070,6 +1070,7 @@ id barrier
 id beginning
 id blocking
 id bottom
+id btnDownload
 id buttonPanel
 id category_TextView
 id center
@@ -1140,13 +1141,7 @@ id mini
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
-id nav_home
-id nav_linkutili
 id nav_logout
-id nav_mappa
-id nav_notizie
-id nav_orari
-id nav_specializzazioni
 id nav_view
 id navigation_header_container
 id never
@@ -1163,6 +1158,7 @@ id parentPanel
 id parent_matrix
 id percent
 id pin
+id progressBar
 id progress_circular
 id progress_horizontal
 id radio
@@ -1294,6 +1290,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_downloadfile
 layout activity_main
 layout app_bar_main
 layout content_login

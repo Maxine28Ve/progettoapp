@@ -4,7 +4,6 @@ import android.Manifest
 import java.io.File
 import android.content.Context
 import android.content.Intent
-import android.app.Activity
 import android.content.pm.PackageManager
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.net.Uri
@@ -12,47 +11,31 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Environment
 import android.widget.Toast
-import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.nav_header_main.*
 import android.webkit.WebViewClient
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
-import android.widget.ListView
-import android.widget.SimpleAdapter
-import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_downloadfile.*
 import kotlinx.android.synthetic.main.content_main.webView
 import kotlinx.android.synthetic.main.nav_header_main.view.*
-import org.w3c.dom.Element
-import org.w3c.dom.Node
-import org.xml.sax.SAXException
 import java.io.IOException
 import java.lang.ref.WeakReference
-import java.net.HttpURLConnection
 import java.net.URL
-import javax.xml.parsers.DocumentBuilderFactory
-import javax.xml.parsers.ParserConfigurationException
-import android.widget.ArrayAdapter
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     var usersDB: UsersDBHelper = UsersDBHelper(this)
     val url = "file:///android_asset/Home.html"
-    var backpressed_counter : Int = 0
+    private var backpressed_counter : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -112,29 +95,29 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
-                for (i in notizie!!) {
+                for (i in (notizie!!)) {
                     println(i)
                 }
                 return ""
             }
 
-            fun getNotizie(url: String?) : String{
+            private fun getNotizie(url: String?) : String{
                 val activity = activityReference.get()
                 if (activity == null || activity.isFinishing) return ""
-                var readText = ""
+                val readText : String
                 var location = ""
                 try {
-                    val url = URL(url)
+                    val remote = URL(url)
 
-                    readText = url.readText()
-                    Log.d("LMAO", readText)
+                    readText = remote.readText()
+                    Log.d("readText", readText)
                     val path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
                     val fileName = "notizie.xml"
-                    location = path.toString() + "/" + fileName
-                    val myfile = File(path, fileName)
-                    if (myfile.exists() == false) {
+                    location = "${path}/$fileName"
+                    val notiziefile = File(path, fileName)
+                    if (!notiziefile.exists()) {
                         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                            != PackageManager.PERMISSION_GRANTED
+                            != PERMISSION_GRANTED
                         ) {
                             Log.d("Perm", "Permission not granted")
                             ActivityCompat.requestPermissions(
@@ -143,17 +126,17 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                             )
                         }
                         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                            == PackageManager.PERMISSION_GRANTED
+                            == PERMISSION_GRANTED
                         ) {
-                            myfile.createNewFile()
+                            Log.d("Perm", "Permission granted")
+                            notiziefile.createNewFile()
                         }
                     }
-                    myfile.printWriter().use { out ->
+                    notiziefile.printWriter().use { out ->
                         out.print(readText)
                     }
 
-                    println("Wrote to file")
-                    Log.d("File", "file exists? " + myfile.exists())
+                    Log.d("File", "file notizie.xml exists? " + notiziefile.exists())
                 } catch (e: InterruptedException) {
                     e.printStackTrace()
                     resp = e.message
@@ -189,7 +172,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         Log.d("TAG", "requestCode $requestCode")
         Log.d("TAG", "resultCode $resultCode")
 
-        var category = SQLite.sqli.getCategory()
+        val category = SQLite.sqli.getCategory()
 
         if (SQLite.sqli.getCategory() == -1) {
             Log.e("TAG","ERROR CATEGORY IS $category")
@@ -199,13 +182,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         nav_view.getHeaderView(0).category_TextView.text = translateCategory(category)
 
-        Log.d("TAG", "Category: "+category)
+        Log.d("TAG", "Category: $category")
     }
 
     fun translateCategory(category : Int) : String{
         if(category < 0)
             return "Undefined"
-        var categories = arrayOf<String>("Studente Superiori", "Studente Medie", "Genitore", "Insegnante", "Segreteria")
+        val categories = arrayOf<String>("Studente Superiori", "Studente Medie", "Genitore", "Insegnante", "Segreteria")
         return categories[category]
     }
 
@@ -297,7 +280,7 @@ class MyWebViewClient : WebViewClient(){
         // reject anything other
     }
 }
-class HomeActivityInterface internal constructor(var context_login : Context) {
+class HomeActivityInterface internal constructor(private var context_login : Context) {
 
     @JavascriptInterface
     fun openLinkInBrowser(link : String){

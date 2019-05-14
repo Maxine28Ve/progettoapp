@@ -37,7 +37,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     var usersDB: UsersDBHelper = UsersDBHelper(this)
     val url = "file:///android_asset/Home.html"
-    private var backPressed : Boolean = false
+    private var backPressedTwice : Boolean = false
     var category = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -105,10 +105,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             var priorities = arrayOf<String>()
             when (category){
                 0 -> priorities = arrayOf<String>("OrariLezioni", "Notizie")
-                1 -> priorities = arrayOf<String>("OrariLezioni", "Notizie")
-                2 -> priorities = arrayOf<String>("Notizie", "LinkUtili", "OrarioSegreteria")
-                3 -> priorities = arrayOf<String>("Notizie", "LinkUtili", "OrarioSegreteria", "Mappa")
-                4 -> priorities = arrayOf<String>("Notizie", "LinkUtili", "OrarioSegreteria")
+                1 -> priorities = arrayOf<String>("OrariLezioni", "Notizie", "Mappa")
+                2 -> priorities = arrayOf<String>("Notizie", "Registro")
+                3 -> priorities = arrayOf<String>("Notizie", "Mappa", "orarisegreteria")
+                4 -> priorities = arrayOf<String>("Notizie", "Registro")
             }
             nav_view.menu.clear()
             var counter = 0
@@ -131,17 +131,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 setOnMenuItemClickListener {
                     webView.clearHistory()
                     webView.loadUrl("file:///android_asset/specializzazione/specializzazioni.html")
-
-                    drawer_layout.closeDrawer(GravityCompat.START)
-
-                    true
-                }
-            }
-            menu_item = nav_view.menu.add(0, counter, 0, "Mappa")
-            menu_item.apply {
-                setOnMenuItemClickListener {
-                    webView.clearHistory()
-                    webView.loadUrl("file:///android_asset/Mappa.html")
 
                     drawer_layout.closeDrawer(GravityCompat.START)
 
@@ -187,21 +176,26 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     override fun onBackPressed() {
+        
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
             return
         }
         else {
-            this.backPressed = true
+            if(backPressedTwice == true){
+                super.onBackPressed()
+                return
+            }
+            this.backPressedTwice = true
             val message = "Press Back again to close the app"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(this, message, duration)
             toast.show()
             Handler().postDelayed({
-                this.backPressed = false
+                this.backPressedTwice = false
             }, 1500)
+                        
         }
-        super.onBackPressed()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

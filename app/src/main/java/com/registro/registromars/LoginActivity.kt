@@ -47,5 +47,9 @@ class WebAppInterface internal constructor(var context_login : Context) {
         return "Return!"
     }
 
+    @JavascriptInterface
+    fun updateMenu(category : Int){
+    }
+
 }
 

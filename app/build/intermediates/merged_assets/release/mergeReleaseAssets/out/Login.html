@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css" crossorigin="anonymous">
+    <style>
+    a:link, a:visited {
+      width: 90%;
+      background-color: #008577;
+      color: white;
+      padding: 14px 14px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-bottom: 1px solid #f4f4f9;
+    }
+
+    a:hover, a:active {
+      background-color: #00574B;
+    }    </style>
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>Categoria</h1>
+    <div class="container" style="text-align: center;">
+      <script>
+        function js_login(category){
+          Android.setCategory(category);
+        }
+
+      </script>
+
+      <div class="container" style="width: 99%; height: 100%; ">
+        <a href="#" onclick="js_login(0);"> Studente </a>
+      </div>
+      <div class="container" style="width: 99%; height: 100%; ">
+        <a href="#" onclick="js_login(1);"> Insegnante </a>
+      </div>
+      <div class="container" style="width: 99%; height: 100%; ">
+        <a href="#" onclick="js_login(2);"> Genitore </a>
+      </div>
+      <div class="container" style="width: 99%; height: 100%; ">
+        <a href="#" onclick="js_login(3);"> Segreteria </a>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

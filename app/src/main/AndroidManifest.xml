@@ -32,6 +32,7 @@
                 android:noHistory="true">
         </activity>
         <activity android:name=".DownloadFileActivity"/>
+        <activity android:name=".NotizieActivity"/>
     </application>
 
 </manifest>

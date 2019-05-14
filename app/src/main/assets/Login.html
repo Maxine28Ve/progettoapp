@@ -29,22 +29,26 @@
     <div class="container" style="text-align: center;">
       <script>
         function js_login(category){
+          Android.updateMenu(category);
           Android.setCategory(category);
         }
 
       </script>
 
       <div class="container" style="width: 99%; height: 100%; ">
-        <a href="#" onclick="js_login(0);"> Studente </a>
+        <a href="#" onclick="js_login(0);"> Studente delle Superiori</a>
       </div>
       <div class="container" style="width: 99%; height: 100%; ">
-        <a href="#" onclick="js_login(1);"> Insegnante </a>
+        <a href="#" onclick="js_login(1);"> Studente delle Medie</a>
       </div>
       <div class="container" style="width: 99%; height: 100%; ">
-        <a href="#" onclick="js_login(2);"> Genitore </a>
+        <a href="#" onclick="js_login(2);"> Insegnante </a>
       </div>
       <div class="container" style="width: 99%; height: 100%; ">
-        <a href="#" onclick="js_login(3);"> Segreteria </a>
+        <a href="#" onclick="js_login(3);"> Genitore </a>
+      </div>
+      <div class="container" style="width: 99%; height: 100%; ">
+        <a href="#" onclick="js_login(4);"> Segreteria </a>
       </div>
     </div>
     <!-- Optional JavaScript -->

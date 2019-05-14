@@ -1,0 +1,4 @@
+#Tue May 14 08:13:57 CEST 2019
+base.0=/home/maxine/AndroidStudioProjects/progettoapp_dev/app/build/intermediates/dex/release/mergeDexRelease/out
+path.0=classes.dex
+renamed.0=classes.dex

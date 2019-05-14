@@ -1,6 +1,7 @@
 package com.registro.registromars
 
 import android.Manifest
+import android.app.Activity
 import java.io.File
 import android.content.Context
 import android.content.Intent
@@ -10,6 +11,7 @@ import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Environment
+import android.os.Handler
 import android.widget.Toast
 import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
@@ -35,17 +37,17 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     var usersDB: UsersDBHelper = UsersDBHelper(this)
     val url = "file:///android_asset/Home.html"
-    private var backpressed_counter : Int = 0
+    private var backPressed : Boolean = false
+    var category = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        val task = MyAsyncTask(this)
-        task.execute("https://www.fermibassano.edu.it/notizie?format=feed&type=rss")
+
         webView.settings.loadsImagesAutomatically = true
         webView.settings.javaScriptEnabled = true
         webView.setWebViewClient(MyWebViewClient())
-        webView.addJavascriptInterface(HomeActivityInterface( this), "Android")
+        webView.addJavascriptInterface(HomeActivityInterface( this, this), "Android")
         webView.loadUrl(this.url)
 
         SQLite.sqli = UsersDBHelper(this)
@@ -61,8 +63,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // startActivity(sendIntent)
             startActivityForResult(sendIntent, 1)
         }
-        //TODO Add startActivityForResult or something
-
+        this.category = category
+        dynamicMenu(category)
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
@@ -72,102 +74,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
     }
 
-    companion object {
-        class MyAsyncTask internal constructor(context: HomeActivity) : AsyncTask<String, String, String?>() {
 
-            private var resp: String? = null
-            private val activityReference: WeakReference<HomeActivity> = WeakReference(context)
-
-            override fun onPreExecute() {
-                val activity = activityReference.get()
-                if (activity == null || activity.isFinishing) return
-            }
-
-            override fun doInBackground(vararg params: String?): String? {
-                publishProgress("Download started") // Calls onProgressUpdate()
-                val filelocation = getNotizie(params[0])
-                var notizie: List<Notizia>? = null
-                try {
-                    val parser = XmlPullParserHandler()
-                    val istream = File(filelocation).inputStream()
-                    notizie = parser.parse(istream)
-
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                }
-                for (i in (notizie!!)) {
-                    println(i)
-                }
-                return ""
-            }
-
-            private fun getNotizie(url: String?) : String{
-                val activity = activityReference.get()
-                if (activity == null || activity.isFinishing) return ""
-                val readText : String
-                var location = ""
-                try {
-                    val remote = URL(url)
-
-                    readText = remote.readText()
-                    Log.d("readText", readText)
-                    val path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-                    val fileName = "notizie.xml"
-                    location = "${path}/$fileName"
-                    val notiziefile = File(path, fileName)
-                    if (!notiziefile.exists()) {
-                        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                            != PERMISSION_GRANTED
-                        ) {
-                            Log.d("Perm", "Permission not granted")
-                            ActivityCompat.requestPermissions(
-                                activity, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                                101
-                            )
-                        }
-                        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                            == PERMISSION_GRANTED
-                        ) {
-                            Log.d("Perm", "Permission granted")
-                            notiziefile.createNewFile()
-                        }
-                    }
-                    notiziefile.printWriter().use { out ->
-                        out.print(readText)
-                    }
-
-                    Log.d("File", "file notizie.xml exists? " + notiziefile.exists())
-                } catch (e: InterruptedException) {
-                    e.printStackTrace()
-                    resp = e.message
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    resp = e.message
-                }
-
-                return location
-
-            }
-
-            override fun onPostExecute(result: String?) {
-
-                val activity = activityReference.get()
-                if (activity == null || activity.isFinishing) return
-                Toast.makeText(activity, "Done", Toast.LENGTH_SHORT).show()
-//                activity.textView.text = result.let { it }
-                //              activity.myVariable = 100
-            }
-
-            override fun onProgressUpdate(vararg text: String?) {
-
-                val activity = activityReference.get()
-                if (activity == null || activity.isFinishing) return
-
-                Toast.makeText(activity, text.firstOrNull(), Toast.LENGTH_SHORT).show()
-
-            }
-        }
-    }
     override fun onActivityResult(requestCode : Int, resultCode : Int, data : Intent?) {
         Log.d("TAG", "requestCode $requestCode")
         Log.d("TAG", "resultCode $resultCode")
@@ -181,40 +88,120 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             //Log.e("TAG", "Forced category: "+SQLite.sqli.getCategory())
         }
         nav_view.getHeaderView(0).category_TextView.text = translateCategory(category)
-
+        dynamicMenu(category)
+        webView.loadUrl("file:///android_asset/Home.html")
         Log.d("TAG", "Category: $category")
     }
 
     fun translateCategory(category : Int) : String{
+        this.category = category
         if(category < 0)
             return "Undefined"
-        val categories = arrayOf<String>("Studente Superiori", "Studente Medie", "Genitore", "Insegnante", "Segreteria")
+        val categories = arrayOf<String>("Studente delle Superiori", "Studente delle Medie", "Insegnante", "Genitore", "Segreteria")
         return categories[category]
     }
 
     fun dynamicMenu(category: Int){
-        var priorities = arrayOf<String>()
-        when (category){
-            0 -> priorities = arrayOf<String>("OrarioLezioni")
+            var priorities = arrayOf<String>()
+            when (category){
+                0 -> priorities = arrayOf<String>("OrariLezioni", "Notizie")
+                1 -> priorities = arrayOf<String>("OrariLezioni", "Notizie")
+                2 -> priorities = arrayOf<String>("Notizie", "LinkUtili", "OrarioSegreteria")
+                3 -> priorities = arrayOf<String>("Notizie", "LinkUtili", "OrarioSegreteria", "Mappa")
+                4 -> priorities = arrayOf<String>("Notizie", "LinkUtili", "OrarioSegreteria")
+            }
+            nav_view.menu.clear()
+            var counter = 0
+            for(item in priorities){
+                var menu_item = nav_view.menu.add(0, counter, 0, item)
+                menu_item.apply {
+                    setOnMenuItemClickListener {
+                        webView.clearHistory()
+                        webView.loadUrl("file:///android_asset/$item.html")
+
+                        drawer_layout.closeDrawer(GravityCompat.START)
+
+                        true
+                    }
+                }
+            }
+        if(category == 1){
+            var menu_item = nav_view.menu.add(0, counter, 0, "Specializzazioni")
+            menu_item.apply {
+                setOnMenuItemClickListener {
+                    webView.clearHistory()
+                    webView.loadUrl("file:///android_asset/specializzazione/specializzazioni.html")
+
+                    drawer_layout.closeDrawer(GravityCompat.START)
+
+                    true
+                }
+            }
+            menu_item = nav_view.menu.add(0, counter, 0, "Mappa")
+            menu_item.apply {
+                setOnMenuItemClickListener {
+                    webView.clearHistory()
+                    webView.loadUrl("file:///android_asset/Mappa.html")
+
+                    drawer_layout.closeDrawer(GravityCompat.START)
+
+                    true
+                }
+            }
         }
+
+        var submenu = nav_view.menu.addSubMenu("Altro")
+        var logout_item = submenu.add(1, 0, 0, "logout")
+            logout_item.apply {
+            setOnMenuItemClickListener {
+                webView.clearHistory()
+                webView.loadUrl("file:///android_asset/Home.html")
+                SQLite.sqli.setCategory(-1)
+                val sendIntent = Intent(this@HomeActivity, LoginActivity::class.java).apply {
+                    action = Intent.ACTION_SEND
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, "")
+                }
+                startActivityForResult(sendIntent, 1)
+
+                drawer_layout.closeDrawer(GravityCompat.START)
+
+                true
+            }
+
+        }
+        var linkutili = submenu.add(1, 0, 0, "Link Utili")
+        linkutili.apply {
+            setOnMenuItemClickListener {
+                webView.clearHistory()
+                webView.loadUrl("file:///android_asset/LinkUtili.html")
+                drawer_layout.closeDrawer(GravityCompat.START)
+
+                true
+            }
+
+        }
+
+
     }
+
 
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
-            backpressed_counter = 0
-        } else {
-            backpressed_counter++
-            if(backpressed_counter == 1){
-                val message = "Press Back again to close the app"
-                val duration = Toast.LENGTH_SHORT
-                val toast = Toast.makeText(this, message, duration)
-                toast.show()
-            }
-            else{
-                super.onBackPressed()
-            }
+            return
         }
+        else {
+            this.backPressed = true
+            val message = "Press Back again to close the app"
+            val duration = Toast.LENGTH_SHORT
+            val toast = Toast.makeText(this, message, duration)
+            toast.show()
+            Handler().postDelayed({
+                this.backPressed = false
+            }, 1500)
+        }
+        super.onBackPressed()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -256,31 +243,33 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }R.id.nav_linkutili -> {
                 webView.loadUrl("file:///android_asset/LinkUtili.html")
             }*/
-            R.id.nav_logout -> {
-                SQLite.sqli.setCategory(-1)
-                val sendIntent = Intent(this, LoginActivity::class.java).apply {
+            R.id.nav_notizie -> {
+                val sendIntent = Intent(this, NotizieActivity::class.java).apply {
                     action = Intent.ACTION_SEND
                     type = "text/plain"
                     putExtra(Intent.EXTRA_TEXT, "")
                 }
-                startActivityForResult(sendIntent, 1)
-
+                startActivityForResult(sendIntent, 2)
             }
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
-        backpressed_counter = 0
         return true
     }
 }
 class MyWebViewClient : WebViewClient(){
     override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-        return !("file://" in Uri.parse(url).host!!)
+        Log.d("URL", "Handling $url")
+        var shouldOverride = !(("file://" in Uri.parse(url).host!!) || (".html" in Uri.parse(url).path!!))
+        shouldOverride = shouldOverride && !(Uri.parse(url).toString() == "https://www.fermibassano.edu.it/progetti")
+        Log.d("URL", "Should handle: $shouldOverride")
+        return shouldOverride
         // This is my web site, so do not override; let my WebView load the page
         // reject anything other
     }
 }
-class HomeActivityInterface internal constructor(private var context_login : Context) {
+class HomeActivityInterface internal constructor(private var context : Context, private var cont : HomeActivity) {
+    val activityReference: WeakReference<HomeActivity> = WeakReference(cont)
 
     @JavascriptInterface
     fun openLinkInBrowser(link : String){
@@ -288,8 +277,22 @@ class HomeActivityInterface internal constructor(private var context_login : Con
         val bundle = Bundle()
         bundle.putBoolean("new_window", true)
         intent.putExtras(bundle)
-        context_login.startActivity( intent, null)
+        context.startActivity( intent, null)
 
+    }
+    @JavascriptInterface
+    fun translateCategory() : String{
+        val activity = activityReference.get()
+        if (activity == null || activity.isFinishing) return "Undefined"
+        Log.d("JS", "Translating cat")
+        return activity.translateCategory(activity.category)
+    }
+    @JavascriptInterface
+    fun updateMenu(category: Int){
+        val activity = activityReference.get()
+        if (activity == null || activity.isFinishing) return
+        activity.dynamicMenu(category)
+        Log.d("JS", "In update menu")
     }
 }
 
